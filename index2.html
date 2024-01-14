@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ブラシレスDCモータ</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/three@0.142.0/build/three.min.js">
+    </script>
+  <script src="https://unpkg.com/three@0.142.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://unpkg.com/three@0.142.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="script2.js"></script>
+</head>
+<body>
+  <h1 class="title"　id="DCbless">ブラシレスDCモータ</h1>
+  <div class="change">
+    <li><a href="index.html">ブラシ付きDCモータ</a></li>
+  </div>
+  <div id="canvas_wrapper">
+    <canvas id = "myCanvas"></canvas>
+  </div>
+  <div class="operation">
+    <div class="checkbox">
+    <label for="name" id="current"><input type="checkbox" id="check1">電流</label>
+    <label for="name" id="DCmgf"><input type="checkbox" id="check2">磁界</label>
+    <label for="name" id="DCforce"><input type="checkbox" id="check3">力</label>
+    </div>
+    <div class="range">
+      <label for="name2"><input type="range" name="voltage" id="vol" min="0" max="10" value="0">電圧</label>
+      <label for="name2"><input type="range" name="coil" id="coil" min="0" max="10" value="0">コイル巻数</label>
+    <label for="name2"><input type="range" name="pole" id="pole" min="0" max="1" value="0">極数</label>
+    </div>
+  </div>
+  <div class="subtitle">
+    <h2 class="h2-header">ブラシレスDCモータとは</h2>
+  </div>
+  <div>
+    <div class="exp">
+      <p>ブラシレスDCモータとはブラシ付きDCモータからブラシや整流子などの機械的な接触部分を取り除いたモータのことです。</p>
+        <h3 class="h3-header">＜ブラシレスDCモータの構成＞</h3>
+        <p>ブラシレスDCモータは電磁石（コイルを巻かれた鉄心）、永久磁石、位置検出機（永久磁石の位置を検出する）、駆動回路によって構成されています。<br>
+          
+        ブラシレスDCモータでは電磁石のことをステータ（固定子）と呼び、永久磁石のことをロータ（回転子）と呼びます。<br>
+          
+        また、ブラシレスDCモータではブラシ付きDCモータにはあった整流子とブラシがありません。<br>
+          
+          さらに、ブラシレスDCモータを動かすにはインバータと呼ばれる駆動回路が必要になっているところもブラシ付きDCモータとの違いです。
+        </p>
+      <h3 class="h3-header">＜ブラシレスDCモータの構造・動作原理＞</h3>
+      <p>ブラシレスDCモータの構造は外側に電磁石が配置されており、その中央に永久磁石があります。これはブラシ付きDCモータと比較すると逆の構造になっています。<br>
+
+        直流電圧を印加すると外側のあるコイルに通電され鉄心が電磁石になります。そのとき、コイルにはフレミングの左手の法則に基づいて力が加わります。<br>
+
+        電磁石は固定されているため回りませんが、ロータである永久磁石に反力が加わりで回転し始めます。これと同時に、電磁石と永久磁石に引力と反発力も加わります<br>
+
+        連続回転するためには、位置検出機を使用して永久磁石の位置を検出し、通電させるコイルを変え、複数ある電磁石のONとOFFを切り替えることで連続回転が可能になります。<br>
+      </p>
+      <h3 class="h3-header">＜ブラシレスDCモータのメリット・デメリット＞</h3>
+      <div class="flex">
+        <div class="left">
+          <p>メリット</p>
+          <li>騒音が発生しない</li>
+          <li>寿命が長い</li>
+          <li>制御性が高い</li>
+          <li>効率がいい</li>
+          <li>装置の小型化が容易</li>
+        </div>
+        <div class="right">
+          <p>デメリット</p>
+          <li>駆動回路が必要</li>
+          <li>高価格</li>
+        </div>
+      </div>
+      <h3 class="h3-header">＜ブラシレスDCモータの用途＞</h3>
+      <li>ハードディスク、エアコン、冷蔵庫、洗濯機、、プリンタ、自動車部品など</li>
+    </div>
+  </div>
+</body>
+
+</html>

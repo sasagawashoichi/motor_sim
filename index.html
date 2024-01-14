@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ブラシ付きDCモータ</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/three@0.142.0/build/three.min.js">
+    </script>
+  <script src="https://unpkg.com/three@0.142.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://unpkg.com/three@0.142.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1 class="title">ブラシ付きDCモータ</h1>
+    <div class="change">
+      <li><a href="index2.html">ブラシレスDCモータ</a></li>
+    </div>
+  <div id="canvas_wrapper">
+    <canvas id = "myCanvas"></canvas>
+  </div>
+  <div class="operation">
+    <div class="checkbox">
+    <label for="name" id="current"><input type="checkbox" id="check1">電流</label>
+    <label for="name" id="DCmgf"><input type="checkbox" id="check2">磁界</label>
+    <label for="name" id="DCforce"><input type="checkbox" id="check3">力</label>
+    </div>
+    <div class="range">
+      <label for="name2"><input type="range" name="voltage" id="vol" min="0" max="10" value="0">電圧</label>
+      <label for="name2"><input type="range" name="coil" id="coil" min="0" max="10" value="0">コイル巻数</label>
+    </div>
+  </div>
+  <div class="subtitle">
+    <h2 class="h2-header">1.ブラシ付きDCモータとは</h2>
+  </div>
+    <div class="exp">
+      <p>DCモータとは直流電源で動くモータのことです。電池などの直流電源をつなぐことで回転させることができるため制御性や回転効率が優れています。<br>また、構造が簡単なため機器の構造を簡略化したり、小型化することができます。</p>
+      <h3 class="h3-header">＜ブラシ付きDCモータの構成＞</h3>
+      <p>ブラシ付きDCモータは、磁石と導体で構成されています。磁石を構成する界磁は、巻線による電磁石と永久磁石の２種類がありますが、ほとんどのものが永久磁石を使用しています。<br>
+        
+      また、導体部分のことを電機子と呼び、ブラシ付きDCモーターではロータ（回転子）が電機子となり、そこに施されている巻線（コイル）は、電機子巻線と呼びます。また、永久磁石のことをステータ（固定子）と呼びます。<br>
+        
+      ブラシ付きDCモータには、整流のための機構が必要不可欠であるため、ロータの巻線（コイル）の両端には整流子が、電流を供給する側にはブラシが設置されています。</p>
+      
+      <h3 class="h3-header">＜ブラシ付きDCモータの構造・動作原理＞</h3>
+      <p>ブラシ付きDCモーターの構造は、磁石のＮ極とＳ極がそれぞれ向かい合うように配置され、固定されています。その両極の間に回転可能なロータがが配置されています<br>
+
+        直流電圧を印加した整流子がブラシに接触している間は、整流子と巻線を経由して電流が流れる状態となり、フレミングの左手の法則に基づいてロータが回転します。<br>
+
+        ロータが90度回転すると、整流子とブラシが接触しない構造になっているため、電磁力は発生しなくなりますが、惰性でロータはそのまま回転を続けます。<br>
+        回転を続けていると、再び整流子とブラシが接触するようになり、電流が流れ、電磁力が発生する状態となります。<br>
+        
+        また、半回転して整流子とブラシが接触すると、前回とは電流の向きが反対となる構造なので、それまでの回転方向を維持して回転することができます。<br>
+        この動作を繰り返すことで、ブラシ付きDCモーターは同一方向に連続して回転を続けることが可能となります。</p>
+      <h3 class="h3-header">＜ブラシ付きDCモータのメリット・デメリット＞</h3>
+      <div class="flex">
+        <div class="left">
+          <p>メリット</p>
+          <li>制御性が高い</li>
+          <li>効率がいい</li>
+          <li>低価格</li>
+          <li>装置の小型化が容易</li>
+        </div>
+        <div class="right">
+          <p>デメリット</p>
+          <li>寿命が短い</li>
+          <li>騒音の発生</li>
+        </div>
+      </div>
+      <h3 class="h3-header">＜ブラシ付きDCモータの用途＞</h3>
+      <li>おもちゃ、電動歯ブラシ、シェーバー、小型扇風機、携帯電話のバイブレーション、パソコンの冷却ファンなど</li>
+    </div>
+    <div class="subtitle">
+      <h2 class="h2-header">2.フレミングの左手の法則</h2>
+    </div>
+    <div class="exp">
+    <div class="flex">
+      <div class="left2">
+        <p>フレミングの左手の法則とは、電流の向き、磁界の向き、力の向きの3つの向きの関係を左手で表すことができる法則です。<br>
+
+          中指は電流の向き、人差し指は磁界の向き、親指は力の向きを表しています。<br>
+
+          このフレミングの左手の法則はブラシ付きモータ以外の様々なモータでも説明することができます。
+        </p>
+      </div>
+      <div class="right">
+        <img src="image/kagaku_hand_fleming_left.png" alt="フレミングの左手の法則">
+      </div>
+    </div>
+    </div>
+</body>
+
+</html>
